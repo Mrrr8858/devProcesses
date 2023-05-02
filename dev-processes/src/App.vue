@@ -42,10 +42,6 @@ export default {
                     title: "Вакансии",
                     route: "/vacancies",
                 },
-                {
-                    title: "Оферы",
-                    route: "/offers",
-                },
             ],
         };
     },

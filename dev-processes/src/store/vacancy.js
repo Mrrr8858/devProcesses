@@ -1,7 +1,7 @@
 // Utilities
 import { defineStore } from "pinia";
 
-export const useAppStore = defineStore("app", {
+export const useVacancyStore = defineStore("vacancy", {
     state: () => ({
         id: 10,
     }),

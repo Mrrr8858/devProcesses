@@ -5,8 +5,8 @@
 </template>
 
 <script>
-import { useAppStore } from "../store/app";
-const app = useAppStore();
+import { useUserStore } from "../store/user";
+const user = useUserStore();
 
 export default {
     data() {
@@ -16,13 +16,13 @@ export default {
     },
     methods: {
         add() {
-            app.setId(app.id + 1);
-            console.log(app.id);
+            user.setId(user.id + 1);
+            console.log(user.id);
         },
     },
     computed: {
         app() {
-            return app.id;
+            return user.id;
         },
     },
 };
