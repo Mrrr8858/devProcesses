@@ -1,9 +1,12 @@
 // Utilities
+import Vacancy from "@/model/Vacancy";
 import { defineStore } from "pinia";
+import api from "./api";
 
 export const useVacancyStore = defineStore("vacancy", {
     state: () => ({
-        id: 10,
+        listVacancies: [],
+        vacancy: null,
     }),
     getters: {
         getId(state) {
@@ -11,8 +14,20 @@ export const useVacancyStore = defineStore("vacancy", {
         },
     },
     actions: {
-        setId(id) {
-            this.id = id;
+        setListVacancies(data) {
+            this.listVacancies = data.map((row) => new Vacancy(row));
+        },
+        setVacancy(data) {
+            this.vacancy = new Vacancy(data);
+        },
+        async getListVacancies() {
+            this.setListVacancies(await api.vacancy.getVacancies());
+        },
+        async createVacancy(payload) {
+            console.log(await api.vacancy.createVacancy(payload));
+        },
+        async getVacancy(payload) {
+            this.setVacancy(await api.vacancy.getVacancy(payload));
         },
     },
 });

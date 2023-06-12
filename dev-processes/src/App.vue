@@ -17,6 +17,7 @@
             <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
             <v-toolbar-title>Страница</v-toolbar-title>
+            <v-btn @click="login">Войти</v-btn>
         </v-app-bar>
         <v-main>
             <router-view />
@@ -31,6 +32,10 @@ export default {
             drawer: null,
             items: [
                 {
+                    title: "Аккаунты",
+                    route: "/accounts",
+                },
+                {
                     title: "Личный кабинет",
                     route: "/lk",
                 },
@@ -42,8 +47,19 @@ export default {
                     title: "Вакансии",
                     route: "/vacancies",
                 },
+                {
+                    title: "Компании",
+                    route: "/companies",
+                },
             ],
         };
+    },
+    methods: {
+        async login() {
+            this.$router.push({
+                path: `/login`,
+            });
+        },
     },
 };
 </script>

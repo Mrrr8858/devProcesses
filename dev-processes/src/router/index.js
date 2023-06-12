@@ -19,12 +19,20 @@ const routes = [
         component: () => import("@/views/Vacancies.vue"),
     },
     {
-        path: "/vacancies/:id",
+        path: "/vacanciesInfo",
         component: () => import("@/views/VacanciesInfo.vue"),
     },
     {
-        path: "/offers",
-        component: () => import("@/views/Home.vue"),
+        path: "/accounts",
+        component: () => import("@/views/Accounts.vue"),
+    },
+    {
+        path: "/login",
+        component: () => import("@/views/LoginPage.vue"),
+    },
+    {
+        path: "/companies",
+        component: () => import("@/views/Companies.vue"),
     },
 ];
 

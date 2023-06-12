@@ -2,30 +2,18 @@
     <v-container>
         <v-card>
             <v-card-title class="d-flex">
-                <div class="ma-2 pa-2 me-auto">{{ item.title }}</div>
-                <div class="ma-2 pa-2">{{ item.company }}</div>
+                <div class="ma-2 pa-2 me-auto">{{ vacancy.name }}</div>
+                <div class="ma-2 pa-2">{{ vacancy.companyName }}</div>
             </v-card-title>
             <v-card-text>
                 <v-card-title> Описание </v-card-title>
-                <v-list>
-                    <li
-                        v-for="(d, index) in item.desc"
-                        :key="index"
-                        class="ml-3"
-                    >
-                        {{ d }}
-                    </li>
-                </v-list>
+                <div class="ml-3 pl-3">
+                    {{ vacancy.description }}
+                </div>
                 <v-card-title> Требования </v-card-title>
-                <v-list>
-                    <li
-                        v-for="(d, index) in item.req"
-                        :key="index"
-                        class="ml-3"
-                    >
-                        {{ d }}
-                    </li></v-list
-                >
+                <div class="ml-3 pl-3">
+                    {{ vacancy.requirements }}
+                </div>
             </v-card-text>
         </v-card>
     </v-container>
@@ -74,5 +62,16 @@ export default {
         };
     },
     methods: {},
+    computed: {
+        vacancy() {
+            return vacancy.vacancy;
+        },
+    },
+    mounted() {
+        vacancy.getVacancy({
+            companyId: this.$route.query.companyId,
+            id: this.$route.query.id,
+        });
+    },
 };
 </script>
